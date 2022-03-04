@@ -1,0 +1,16 @@
+@import "~bootstrap/scss/bootstrap";
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card, .card-img, .card-img-top {
+  border-radius: 10px !important;
+  overflow: hidden;
+}

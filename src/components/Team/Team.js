@@ -1,69 +1,67 @@
 import React from "react"
-import {
-  Bootstrap,
-  Calendar3,
-  CpuFill,
-  Facebook,
-  GeoFill,
-  House,
-  Instagram,
-  Linkedin,
-  Speedometer2,
-  Toggles2,
-  Tools,
-} from "react-bootstrap-icons"
+import { Link } from "gatsby"
+import { Facebook, Instagram, Linkedin } from "react-bootstrap-icons"
 import Image from "../Images/Images"
 
 const Items = [
   {
-    image: "member1.jpg",
-    name: "Divya",
+    name: "member1",
+    facebook: "https://www.facebook.com",
+    instagram: "https://www.instagram.com",
+    linkedin: "https://www.linkedin.com",
   },
   {
-    image: "member2.jpg",
-    name: "Bharti",
+    name: "member2",
+    facebook: "https://www.facebook.com",
+    instagram: "https://www.instagram.com",
+    linkedin: "https://www.linkedin.com",
   },
   {
-    image: "member3.jpg",
-    name: "Bill Gates",
+    name: "member3",
+    facebook: "https://www.facebook.com",
+    instagram: "https://www.instagram.com",
+    linkedin: "https://www.linkedin.com",
   },
   {
-    image: "member4.jpg",
-    name: "John Doe",
+    name: "member4",
+    facebook: "https://www.facebook.com",
+    instagram: "https://www.instagram.com",
+    linkedin: "https://www.linkedin.com",
   },
 ]
 
 const Team = () => {
   return (
     <div className="container text-center py-5">
-      <h2 class="pb-2 border-bottom text-center">Team Members</h2>
-      <div className="row justify-content-center">
+      <h2 className="pb-2 border-bottom text-center">Team Members</h2>
+      <div className="row justify-content-center py-5">
         {Items.map((item, i) => {
           return (
             <div key={i} className="col-lg-3 col-md-6 col-sm-12">
-              <div className="card card-body mb-4">
+              <div className="card card-body shadow mb-4">
                 <Image
                   className="d-block mx-lg-auto img-fluid"
-                  style={{ margin: "0 auto",
+                  style={{
+                    margin: "0 auto",
                     height: "200px",
                     width: "200px",
                     borderRadius: "100%",
                   }}
-                  filename={item.image}
+                  filename={`${item.name}.jpg`}
                   alt="1"
                 />
                 <h3 className="m-2">{item.name}</h3>
 
-                <ul class="list-unstyled justify-content-center d-flex mb-0">
-                  <li class="m-3">
+                <ul className="list-unstyled justify-content-center d-flex mb-0">
+                  <Link className="m-3" to={item.facebook}>
                     <Facebook />
-                  </li>
-                  <li class="m-3">
+                  </Link>
+                  <Link className="m-3" to={item.instagram}>
                     <Instagram />
-                  </li>
-                  <li class="m-3">
+                  </Link>
+                  <Link className="m-3" to={item.linkedin}>
                     <Linkedin />
-                  </li>
+                  </Link>
                 </ul>
               </div>
             </div>
