@@ -3,7 +3,7 @@ title: Rainbow buttercream
 date: 2019-06-19
 id: 5
 price: 2.50
-image: ./image1.jpg
+image: "1.png"
 description: A vanilla cake with rainbow buttercream icing.
 customField:
   name: Pack Size
