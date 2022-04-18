@@ -5,42 +5,42 @@ const imgs = [
   {
     author: "The Lazy Artist Gallery",
     tag: "People",
-    src: "m1",
+    src: "blog1",
   },
   {
     author: "Daria Shevtsova",
     tag: "Food",
-    src: "m2",
+    src: "blog2",
   },
   {
     author: "Kasuma",
     tag: "Animals",
-    src: "m4",
+    src: "blog3",
   },
   {
     author: "Dominika Roseclay",
     tag: "Plants",
-    src: "m1",
+    src: "blog1",
   },
   {
     author: "Scott Webb",
     tag: "Plants",
-    src: "m3",
+    src: "blog2",
   },
   {
     author: "Jeffrey Czum",
     tag: "People",
-    src: "m2",
+    src: "blog3",
   },
   {
     author: "Dominika Roseclay",
     tag: "Food",
-    src: "m4",
+    src: "blog2",
   },
   {
     author: "Valeria Boltneva",
     tag: "Animals",
-    src: "m3",
+    src: "blog3",
   },
 ]
 
@@ -85,19 +85,17 @@ const Filters = ({ onClickAll, all, onClick, filters }) => (
 const Cards = ({ imgs }) => (
   <div className="row justify-content-center">
     {imgs.map((img, i) => (
-      <div key={i} className="col-lg-3 col-md-4 col-sm-12">
-        <div className="card shadow mb-4 border-primary">
-          <div className="card-body">
-            <div className="figure">
-              <Image
-                filename={`${img.src}.jpg`}
-                style={{ borderRadius: "4px" }}
-                alt={img.src}
-              />
-              <div className="figcaption">
-                <h5 className="fw-bold text-light">{img.author} </h5>
-                <span className="text-warning">{img.tag}</span>
-              </div>
+      <div key={i} className="col-lg-3 col-md-4 col-sm-6">
+        <div className="card shadow mb-4">
+          <div className="figure">
+            <Image
+              filename={`${img.src}.jpg`}
+              style={{ borderRadius: "10px" }}
+              alt={img.src}
+            />
+            <div className="figcaption">
+              <h5 className="fw-bold text-light">{img.author} </h5>
+              <span className="text-warning">{img.tag}</span>
             </div>
           </div>
         </div>
@@ -177,7 +175,7 @@ class Products extends React.Component {
     return (
       <section className="projects-section">
         <div className="container py-5">
-          <h2 className="pb-2 border-bottom text-center">Products</h2>
+          <h2 className="fat-text pb-2 border-bottom text-center">Products</h2>
           <Filters
             onClickAll={this.setAll}
             all={all}

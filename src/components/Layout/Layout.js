@@ -4,14 +4,23 @@ import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
 import "../../styles/custom-style.scss"
 
-const Layout = ({ children }) => {
-  return (
-    <div className="container-fluid p-0">
-      <Header />
-      {children}
-      <Footer />
-    </div>
-  )
+class Layout extends React.Component {
+  componentDidMount() {
+    if (window.Snipcart) {
+      window.Snipcart.api.configure("show_continue_shopping", true)
+    }
+  }
+
+  render() {
+    const { children } = this.props
+    return (
+      <div className="container-fluid p-0">
+        <Header />
+        {children}
+        <Footer />
+      </div>
+    )
+  }
 }
 
 Layout.propTypes = {

@@ -5,9 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPostTemplate = path.resolve(`./src/templates/blog-post-template.js`)
-  const productItemTemplate = path.resolve(
-    `./src/templates/product-item-template.js`
-  )
+  const shopItemTemplate = path.resolve(`./src/templates/shop-item-template.js`)
   return graphql(
     `
       {
@@ -38,8 +36,8 @@ exports.createPages = ({ graphql, actions }) => {
     const blogPosts = allPosts.filter(
       edge => edge.node.fields.collection === `blog`
     )
-    const productItems = allPosts.filter(
-      edge => edge.node.fields.collection === `products`
+    const shopItems = allPosts.filter(
+      edge => edge.node.fields.collection === `shop`
     )
 
     blogPosts.forEach((post, index, arr) => {
@@ -57,13 +55,13 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
-    productItems.forEach((post, index, arr) => {
+    shopItems.forEach((post, index, arr) => {
       const prev = arr[index - 1]
       const next = arr[index + 1]
 
       createPage({
-        path: `/products${post.node.fields.slug}`,
-        component: productItemTemplate,
+        path: `/shop${post.node.fields.slug}`,
+        component: shopItemTemplate,
         context: {
           slug: post.node.fields.slug,
           prev: prev,

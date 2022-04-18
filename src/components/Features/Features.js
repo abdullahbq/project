@@ -21,7 +21,7 @@ const Items = [
     title: "Calender 3",
     description: "Calender 3 Calender 3 Calender 3",
   },
-  
+
   {
     icon: <CpuFill />,
     title: "Calender 3",
@@ -56,22 +56,24 @@ const Items = [
 
 const Features = () => {
   return (
-    <div className="container px-4 py-5" id="icon-grid">
-      <h2 className="pb-2 border-bottom text-center">Features</h2>
+    <div className="container px-4 py-5">
+      <h2 className="fat-text pb-2 border-bottom text-center">Features</h2>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
         {Items.map((item, i) => {
           return (
-            <div key={i} className="col d-flex align-items-start">
-              <div
-                className="bi text-muted flex-shrink-0 me-3"
-                style={{ fontSize: "2rem" }}
-              >
-                {item.icon}
-              </div>
+            <div key={i} className="col text-center ">
+              <div className="card hover card-body shadow">
+                <div
+                  className="bi text-muted flex-shrink-0"
+                  style={{ fontSize: "3rem" }}
+                >
+                  {item.icon}
+                </div>
 
-              <div>
-                <h4 className="fw-bold mb-0">{item.title}</h4>
-                <p>{item.description}</p>
+                <div>
+                  <h4 className="fw-bold mb-0">{item.title}</h4>
+                  <small className="text-muted">{item.description}</small>
+                </div>
               </div>
             </div>
           )

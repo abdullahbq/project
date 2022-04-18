@@ -18,17 +18,47 @@ const BlogPostTemplate = ({ data, pageContext }) => {
   const { prev, next } = pageContext
   return (
     <Layout>
-      <Image
-        className=""
-        style={{ margin: "0 auto", height: "200px", width: "100%" }}
-        filename={mdx.frontmatter.image}
-        alt={mdx.frontmatter.image}
-      />
-      <div className="container py-5">
+      <div className="figure rounded-0">
+        <Image
+          style={{ margin: "0 auto", height: "200px", width: "100%" }}
+          filename={mdx.frontmatter.image}
+          alt={mdx.frontmatter.image}
+        />
+        <div className="figcaption">
+          <div className="text-center">
+            {prev ? (
+              <Link
+                to={`/blog${prev.node.fields.slug}`}
+                className="btn text-center border-primary shadow m-2"
+              >
+                <span className="text-primary">
+                  <ArrowLeft /> {prev.node.frontmatter.title}
+                </span>
+              </Link>
+            ) : (
+              <div></div>
+            )}
+
+            {next ? (
+              <Link
+                to={`/blog${next.node.fields.slug}`}
+                className="btn text-center border-primary shadow m-2"
+              >
+                <span className="text-primary">
+                  {next.node.frontmatter.title} <ArrowRight />
+                </span>
+              </Link>
+            ) : (
+              <div></div>
+            )}
+          </div>
+        </div>
+      </div>
+      <div className="container-fluid py-5">
         <div className="row">
           <div className="col-lg-9 col-md-12 col-sm-12">
             <div className="card card-body shadow mb-4">
-              <h1 class="text-primary fw-bold">{mdx.frontmatter.title}</h1>
+              <h1 class="text-primary fat-text">{mdx.frontmatter.title}</h1>
               <p>
                 Written by: <strong>{mdx.frontmatter.author}</strong>
               </p>
@@ -41,9 +71,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
                 <MDXRenderer>{mdx.body}</MDXRenderer>
               </MDXProvider>
             </div>
-          </div>
 
-          <div className="col-lg-3 col-md-12 col-sm-12">
             <div className="text-center">
               {prev ? (
                 <Link
@@ -51,7 +79,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
                   className="btn text-center border-primary shadow m-2"
                 >
                   <span className="text-primary">
-                    <ArrowLeft /> Previous
+                    <ArrowLeft /> {prev.node.frontmatter.title}
                   </span>
                 </Link>
               ) : (
@@ -64,15 +92,16 @@ const BlogPostTemplate = ({ data, pageContext }) => {
                   className="btn text-center border-primary shadow m-2"
                 >
                   <span className="text-primary">
-                    Next
-                    <ArrowRight />
+                    {next.node.frontmatter.title} <ArrowRight />
                   </span>
                 </Link>
               ) : (
                 <div></div>
               )}
             </div>
+          </div>
 
+          <div className="col-lg-3 col-md-12 col-sm-12">
             <div className="card text-center card-body shadow mb-4">
               <Image
                 className="d-block mx-lg-auto img-fluid"
@@ -109,7 +138,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 export default BlogPostTemplate
 
 export const query = graphql`
-  query BlogPost($slug: String!) {
+  query BlogPostQuery($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       body
       id

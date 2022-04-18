@@ -100,14 +100,14 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col-4 offset-1">
+          <div className="col-6 border-primary">
             <form>
               <h5 className="text-primary">Subscribe to our newsletter</h5>
-              <p className="text-light">
+              <p className="small text-light">
                 Monthly digest of whats new and exciting from us.
               </p>
-              <div className="d-flex w-100 gap-2">
-                <label for="newsletter1" className="visually-hidden">
+              <div className="d-flex w-100 mb-2">
+                <label for="newsletter1">
                   Email address
                   <input
                     id="newsletter1"
@@ -116,10 +116,10 @@ const Footer = () => {
                     placeholder="Email address"
                   />{" "}
                 </label>
-                <button className="btn btn-primary shadow" type="button">
-                  Subscribe
-                </button>
               </div>
+              <button className="btn btn-primary shadow" type="button">
+                Subscribe
+              </button>
             </form>
           </div>
         </div>

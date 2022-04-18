@@ -33,36 +33,38 @@ const Items = [
 const Team = () => {
   return (
     <div className="container text-center py-5">
-      <h2 className="pb-2 border-bottom text-center">Team Members</h2>
+      <h2 className="fat-text pb-2 text-center">Team Members</h2>
       <div className="row justify-content-center py-5">
         {Items.map((item, i) => {
           return (
             <div key={i} className="col-lg-3 col-md-6 col-sm-12">
-              <div className="card card-body shadow mb-4">
-                <Image
-                  className="d-block mx-lg-auto img-fluid"
-                  style={{
-                    margin: "0 auto",
-                    height: "200px",
-                    width: "200px",
-                    borderRadius: "100%",
-                  }}
-                  filename={`${item.name}.jpg`}
-                  alt="1"
-                />
-                <h3 className="m-2">{item.name}</h3>
+              <div className="card shadow mb-4 p-0">
+                <div className="card-header border-0">
+                  <Image
+                    className="d-block mt-4"
+                    style={{
+                      margin: "0 auto",
+                      height: "150px",
+                      width: "150px",
+                      borderRadius: "100%",
+                    }}
+                    filename={`${item.name}.jpg`}
+                    alt="1"
+                  />
+                  <h3 className="text-primary m-2">{item.name}</h3>
 
-                <ul className="list-unstyled justify-content-center d-flex mb-0">
-                  <Link className="m-3" to={item.facebook}>
-                    <Facebook />
-                  </Link>
-                  <Link className="m-3" to={item.instagram}>
-                    <Instagram />
-                  </Link>
-                  <Link className="m-3" to={item.linkedin}>
-                    <Linkedin />
-                  </Link>
-                </ul>
+                  <ul className="list-unstyled justify-content-center d-flex mb-0">
+                    <Link className="m-3" to={item.facebook}>
+                      <Facebook />
+                    </Link>
+                    <Link className="m-3" to={item.instagram}>
+                      <Instagram />
+                    </Link>
+                    <Link className="m-3" to={item.linkedin}>
+                      <Linkedin />
+                    </Link>
+                  </ul>
+                </div>
               </div>
             </div>
           )

@@ -24,9 +24,9 @@ const Accordion = ({ title, content }) => {
   const [isActive, setIsActive] = useState(false)
 
   return (
-    <div className="card border-primary shadow mb-4">
+    <div className="card shadow mb-4 p-0">
       <div
-        className="card-header p-0 border-0"
+        className="card-header border-0"
         onClick={() => setIsActive(!isActive)}
         role="presentation"
       >

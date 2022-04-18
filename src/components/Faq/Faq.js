@@ -28,14 +28,14 @@ const Item = [
 
 const FAQ = () => {
   return (
-    <section className="faq-section">
-      <div className="container py-5">
-        <h2 className="pb-2 border-bottom text-center mb-4">FAQ</h2>
+    <div className="container py-5">
+      <h2 className="fat-text pb-2 border-bottom text-center">FAQ</h2>
+      <div className="row justify-content-center py-5">
         {Item.map(({ title, content }) => (
           <Accordion title={title} content={content} />
         ))}
       </div>
-    </section>
+    </div>
   )
 }
 

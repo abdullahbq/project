@@ -10,7 +10,67 @@ a:hover {
   color: inherit;
 }
 
-.card, .card-img, .card-img-top {
+.card,
+.card-img,
+.card-img-top {
   border-radius: 10px !important;
+  border: none;
   overflow: hidden;
+}
+body {
+  background-color: antiquewhite;
+}
+
+/* ============ Portfolio ============ */
+.figure {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+}
+
+.figcaption {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  transition: 0.5s ease;
+  opacity: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.figcaption-on {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  transition: 0.5s ease;
+  opacity: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.figure:hover .figcaption {
+  opacity: 1;
+}
+
+.hover {
+  background-color: none;
+}
+
+.hover:hover {
+  background-color: #f1f1f1;
+}
+.fat-text {
+  font-weight: 900;
+  font-size: 3rem;
+}
+
+.healthy-text {
+  font-weight: 900;
+  font-size: 2rem;
 }
